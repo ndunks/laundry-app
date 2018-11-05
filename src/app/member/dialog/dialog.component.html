@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content>
+  <mat-error *ngIf="error" class="margin">{{error}}</mat-error>
+  <div [formGroup]="form">
+    <div class="fields">
+      <mat-form-field>
+          <input matInput placeholder="Nama Member" formControlName="nama">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Nomor Telepon/WA" formControlName="telepon">
+      </mat-form-field>
+    </div>
+    <div class="fields">
+      <mat-form-field>
+        <textarea matInput placeholder="Alamat" formControlName="alamat"
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="2"
+          cdkAutosizeMaxRows="10"
+          ></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-stroked-button color="warn" (click)="dialog.close()">Batal</button>
+    <button mat-raised-button color="primary"
+        [disabled]="form.invalid || (app.loadingState | async)"
+        (click)="submit()">Simpan
+    </button>
+</div>

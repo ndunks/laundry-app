@@ -1,0 +1,17 @@
+
+
+
+<div class="header blur">
+    <h1>{{title}}</h1>
+    <button mat-button [matMenuTriggerFor]="menu"  class="close">
+    <mat-icon>close</mat-icon>
+    </button>
+</div>
+<img id="logo" [src]="logo"/>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="exit()">Keluar dari Aplikasi</button>
+    <button mat-menu-item (click)="logout()">Logout User</button>
+</mat-menu>
+<div class="content blur">
+    <router-outlet></router-outlet>
+</div>

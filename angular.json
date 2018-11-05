@@ -1,0 +1,109 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "src/projects",
+  "projects": {
+    "myapp": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "outputPath": "build",
+            "index": "src/index.html",
+            "main": "src/angular.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "customWebpackConfig": {
+              "path": "./webpack-electron.config.js"
+            },
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "src/res",
+                "output": "/res"
+              }
+            ],
+            "styles": [
+              "src/css/style.css"
+            ],
+            "scripts": [],
+            "extractCss": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/dev-server:generic",
+          "options": {
+            "browserTarget": "myapp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "myapp:build:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "myapp",
+  "schematics": {
+    "@schematics/angular:component": {
+      "inlineStyle": true,
+      "spec": false,
+      "styleext": "scss",
+      "viewEncapsulation": "None",
+      "entryComponent": true
+    },
+    "@schematics/angular:module": {
+      "spec": false,
+      "commonModule": true
+    },
+    "@schematics/angular:service": {
+      "spec": false,
+      "flat": true
+    },
+    "@schematics/angular:pipe": {
+      "spec": false
+    },
+    "@schematics/angular:directive": {
+      "spec": false
+    },
+    "@schematics/angular:class": {
+      "spec": false
+    }
+  }
+}

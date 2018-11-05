@@ -1,0 +1,17 @@
+
+> laundry-app@1.0.0 build-watch D:\app-loundry\app
+> ng build --watch --base-href "./"
+
+
+Date: 2018-11-04T07:20:56.595Z
+Hash: f79c2143954879b93602
+Time: 18129ms
+chunk {default~home-home-module~install-install-module} default~home-home-module~install-install-module.js, default~home-home-module~install-install-module.js.map (default~home-home-module~install-install-module) 2.45 MB  [rendered]
+chunk {home-home-module} home-home-module.js, home-home-module.js.map (home-home-module) 16.7 kB  [rendered]
+chunk {install-install-module} install-install-module.js, install-install-module.js.map (install-install-module) 12.6 kB  [rendered]
+chunk {main} main.js, main.js.map (main) 17.7 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 228 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 9.19 kB [entry] [rendered]
+chunk {styles} styles.css, styles.css.map (styles) 65.9 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 3.47 MB [initial] [rendered]
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

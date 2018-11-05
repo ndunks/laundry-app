@@ -1,0 +1,5 @@
+<mat-nav-list>
+  <mat-list-item *ngFor="let menu of menuPages" (click)="openWindow(menu.name)">
+    {{menu.name | titlecase}}
+  </mat-list-item>
+</mat-nav-list>

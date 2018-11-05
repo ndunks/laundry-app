@@ -1,0 +1,62 @@
+<mat-toolbar>
+  <mat-form-field class="margin-right">
+      <input matInput [formControl]="searchInput" placeholder="Filter">
+  </mat-form-field>
+  <button mat-raised-button (click)="add()" color="primary">
+      <mat-icon>add</mat-icon>
+      Add Item
+  </button>
+  <span class="spacer"></span>
+  <button mat-icon-button title="Edit template structure" [routerLink]="['/admin','templates','detail',template?.id]">
+      <mat-icon>settings</mat-icon>
+  </button>
+</mat-toolbar>
+
+  
+  <table mat-table matSort
+      [dataSource]="data"
+      [matSortActive]="sort_col"
+      matSortDisableClear
+      [matSortDirection]="sort_direction">
+      
+      <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+          <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="nama">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nama </th>
+          <td mat-cell *matCellDef="let row"> {{row.nama}} </td>
+      </ng-container>        
+      
+      <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tgl. Daftar </th>
+          <td mat-cell *matCellDef="let row"> {{row.created}} </td>
+      </ng-container>
+      <ng-container matColumnDef="telepon">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Telp </th>
+          <td mat-cell *matCellDef="let row"> {{row.telepon}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="alamat">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Alamat </th>
+          <td mat-cell *matCellDef="let row"> {{row.alamat}} </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let row">
+              <button mat-icon-button color="primary" title="View details" [routerLink]="['/item',template?.name, row.name]">
+                  <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteItem(row, $event)">
+                  <mat-icon>delete</mat-icon>
+              </button>
+          </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="collumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: collumns;"></tr>
+  </table>
+<mat-paginator [length]="paging_total"
+          [pageSize]="paging_size"
+          [pageSizeOptions]="paging_options">
+</mat-paginator>

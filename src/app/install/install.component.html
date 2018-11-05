@@ -1,0 +1,11 @@
+<h1 class="blur">{{title}}</h1>
+<mat-spinner color="primary" [style.visibility]="progress ? 'visible' : 'hidden' "></mat-spinner>
+<div class="content blur">
+    <div>
+      <p>{{status}}</p>
+    </div>
+    <button mat-raised-button color="primary"
+      [disabled]="progress" (click)="process()">
+      {{buttonText}}
+    </button>
+</div>

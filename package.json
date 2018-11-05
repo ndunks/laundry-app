@@ -1,0 +1,50 @@
+{
+  "name": "laundry-app",
+  "version": "1.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --base-href \"./\"",
+    "postbuild": "tsc --build electron",
+    "build-watch": "ng build --watch --base-href \"./\"",
+    "postbuild-watch": "tsc --build electron",
+    "preelectron": "npm run electron-build",
+    "electron": "electron build/electron.js --external-display",
+    "electron-build": "tsc --build electron",
+    "electron-serve": "npm run electron-build & ng serve"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^7.0.2",
+    "@angular/cdk": "^7.0.2",
+    "@angular/common": "^7.0.2",
+    "@angular/compiler": "^7.0.2",
+    "@angular/core": "^7.0.2",
+    "@angular/forms": "^7.0.2",
+    "@angular/http": "^7.0.2",
+    "@angular/material": "^7.0.2",
+    "@angular/platform-browser": "^7.0.2",
+    "@angular/platform-browser-dynamic": "^7.0.2",
+    "@angular/router": "^7.0.2",
+    "core-js": "^2.4.1",
+    "nedb": "^1.8.0",
+    "rxjs": "~6.3.3",
+    "sha1": "^1.1.1",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^7.0.0",
+    "@angular-builders/dev-server": "^7.0.0",
+    "@angular-devkit/build-angular": "~0.10.0",
+    "@angular/cli": "~7.0.3",
+    "@angular/compiler-cli": "~7.0.0",
+    "@angular/language-service": "~7.0.0",
+    "@types/nedb": "^1.8.6",
+    "@types/node": "^8.9.5",
+    "electron": "^4.0.0-beta.5",
+    "ng-electron-devkit": "^0.6.8",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.1"
+  }
+}
